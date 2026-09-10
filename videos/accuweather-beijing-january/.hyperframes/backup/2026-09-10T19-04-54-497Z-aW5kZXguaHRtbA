@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>AccuWeather — Beijing January</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #0b1f3a;
+        --navy-2: #1b4f8a;
+        --amber: #f1652a;
+        --frost: #f7f9fc;
+        --ice: #7ec8e3;
+        --dim: rgba(6, 12, 24, 0.62);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        color: var(--frost);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      .sky {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 50% 0%, #1b4f8a 0%, transparent 58%),
+          linear-gradient(180deg, #071525 0%, #0b1f3a 42%, #102844 100%);
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+      .wordmark-row {
+        position: absolute;
+        top: 72px;
+        left: 80px;
+        right: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 8;
+      }
+      .wordmark {
+        height: 28px;
+        width: auto;
+        display: block;
+      }
+      .live-pill {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ice);
+        opacity: 0.9;
+      }
+      #zoom-outer {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 50%;
+        will-change: transform;
+      }
+      #zoom-inner {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      .tilt-card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 880px;
+        height: 1480px;
+        margin-left: -440px;
+        margin-top: -700px;
+        border-radius: 28px;
+        overflow: hidden;
+        background: #e8eef4;
+        box-shadow: 36px 28px 80px rgba(0, 0, 0, 0.48);
+        transform-style: preserve-3d;
+      }
+      .page-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 880px;
+        will-change: transform;
+      }
+      .page-content img {
+        display: block;
+        width: 880px;
+        height: auto;
+      }
+      .page-marker {
+        position: absolute;
+        pointer-events: none;
+      }
+      #cal-target {
+        top: 15.7%;
+        left: 5%;
+        width: 90%;
+        height: 40%;
+      }
+      #graph-target {
+        top: 58.2%;
+        left: 5%;
+        width: 90%;
+        height: 18.5%;
+      }
+      .yt-hl {
+        --yt-hl-x: 50%;
+        --yt-hl-y: 42%;
+        --yt-hl-rx: 46%;
+        --yt-hl-ry: 28%;
+        --yt-hl-dim: 0.55;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        background: rgba(6, 8, 12, var(--yt-hl-dim));
+        -webkit-mask-image: radial-gradient(
+          ellipse var(--yt-hl-rx) var(--yt-hl-ry) at var(--yt-hl-x) var(--yt-hl-y),
+          transparent 0%,
+          transparent 52%,
+          black 88%
+        );
+        mask-image: radial-gradient(
+          ellipse var(--yt-hl-rx) var(--yt-hl-ry) at var(--yt-hl-x) var(--yt-hl-y),
+          transparent 0%,
+          transparent 52%,
+          black 88%
+        );
+      }
+      .wipe {
+        position: absolute;
+        display: block;
+        border: 3px solid var(--amber);
+        border-radius: 16px;
+        transform-origin: left center;
+        pointer-events: none;
+        box-shadow: 0 0 0 1px rgba(240, 85, 20, 0.25);
+      }
+      #wipe-cal {
+        top: 15.7%;
+        left: 4%;
+        width: 92%;
+        height: 40%;
+      }
+      .callout {
+        position: absolute;
+        left: 80px;
+        z-index: 9;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-width: 920px;
+      }
+      #call-cal {
+        top: 168px;
+      }
+      #call-graph {
+        top: 168px;
+      }
+      .callout-kicker {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+      .callout-title {
+        font-size: 44px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+      .lockup {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        bottom: 120px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .lockup-logo {
+        height: 36px;
+        width: auto;
+        display: block;
+      }
+      .lockup-place {
+        font-size: 72px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+      }
+      .lockup-month {
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ice);
+      }
+      .lockup-line {
+        width: 120px;
+        height: 4px;
+        background: var(--amber);
+        border-radius: 2px;
+        display: block;
+      }
+      .vignette {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 7;
+        background: radial-gradient(ellipse 70% 60% at 50% 45%, transparent 40%, rgba(5, 12, 24, 0.55) 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-pd7f" id="root" data-composition-id="main" data-start="0" data-duration="10" data-fps="30" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-7ggn" class="sky" data-hidden=""></div>
+
+      <section data-hf-id="hf-cbll" id="scene" class="clip" data-start="0" data-duration="3.895" data-track-index="1" data-layout-allow-overflow="true">
+        <div data-hf-id="hf-jipj" class="wordmark-row" id="top-bar">
+          <img data-hf-id="hf-afh2" class="wordmark" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-zoy8" class="live-pill">Beijing · Jan</div>
+        </div>
+
+        <div data-hf-id="hf-krmm" id="zoom-outer">
+          <div data-hf-id="hf-alw3" id="zoom-inner">
+            <div data-hf-id="hf-m5iy" class="tilt-card" id="tilt-card">
+              <div data-hf-id="hf-44zi" class="page-content" id="page-content">
+                <img data-hf-id="hf-l3h3" src="assets/page/column.png" alt="AccuWeather Beijing January monthly forecast">
+                <div data-hf-id="hf-mlfo" class="page-marker" id="cal-target"></div>
+                <div data-hf-id="hf-nizk" class="page-marker" id="graph-target"></div>
+                <div data-hf-id="hf-4w71" class="wipe" id="wipe-cal"></div>
+              </div>
+              <div data-hf-id="hf-yhck" class="yt-hl" id="page-hl"></div>
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-q7bi" class="vignette"></div>
+
+        <div data-hf-id="hf-i9vx" class="callout" id="call-cal">
+          <div data-hf-id="hf-amuw" class="callout-kicker">Monthly forecast</div>
+          <div data-hf-id="hf-vdrq" class="callout-title">Day by day, Beijing</div>
+        </div>
+        <div data-hf-id="hf-zt1h" class="callout" id="call-graph">
+          <div data-hf-id="hf-ttgg" class="callout-kicker">Temperature graph</div>
+          <div data-hf-id="hf-6qh5" class="callout-title">How January actually feels</div>
+        </div>
+
+        <div data-hf-id="hf-9rga" class="lockup" id="lockup">
+          <img data-hf-id="hf-gafd" class="lockup-logo" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-ka78" class="lockup-line" id="lockup-line"></div>
+          <div data-hf-id="hf-n2au" class="lockup-place">Beijing</div>
+          <div data-hf-id="hf-h0yv" class="lockup-month">January</div>
+        </div>
+      </section><section data-hf-id="hf-mev9" id="scene-split-2" class="clip" data-start="3.895" data-duration="0" data-track-index="1" data-layout-allow-overflow="true">
+        <div data-hf-id="hf-i4ne" class="wordmark-row" id="top-bar">
+          <img data-hf-id="hf-ekvb" class="wordmark" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-dxup" class="live-pill">Beijing · Jan</div>
+        </div>
+
+        <div data-hf-id="hf-skrz" id="zoom-outer">
+          <div data-hf-id="hf-xwee" id="zoom-inner">
+            <div data-hf-id="hf-n8gb" class="tilt-card" id="tilt-card">
+              <div data-hf-id="hf-guj3" class="page-content" id="page-content">
+                <img data-hf-id="hf-3koa" src="assets/page/column.png" alt="AccuWeather Beijing January monthly forecast">
+                <div data-hf-id="hf-8pv9" class="page-marker" id="cal-target"></div>
+                <div data-hf-id="hf-j98x" class="page-marker" id="graph-target"></div>
+                <div data-hf-id="hf-z1w8" class="wipe" id="wipe-cal"></div>
+              </div>
+              <div data-hf-id="hf-rfol" class="yt-hl" id="page-hl"></div>
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-92bj" class="vignette"></div>
+
+        <div data-hf-id="hf-pxxk" class="callout" id="call-cal">
+          <div data-hf-id="hf-d7m1" class="callout-kicker">Monthly forecast</div>
+          <div data-hf-id="hf-xkjr" class="callout-title">Day by day, Beijing</div>
+        </div>
+        <div data-hf-id="hf-m3q8" class="callout" id="call-graph">
+          <div data-hf-id="hf-fitt" class="callout-kicker">Temperature graph</div>
+          <div data-hf-id="hf-tmmc" class="callout-title">How January actually feels</div>
+        </div>
+
+        <div data-hf-id="hf-amh7" class="lockup" id="lockup">
+          <img data-hf-id="hf-22h0" class="lockup-logo" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-p3bp" class="lockup-line" id="lockup-line"></div>
+          <div data-hf-id="hf-9f13" class="lockup-place">Beijing</div>
+          <div data-hf-id="hf-ag62" class="lockup-month">January</div>
+        </div>
+      </section><section data-hf-id="hf-y8ao" id="scene-split" class="clip" data-start="3.895" data-duration="6.105" data-track-index="1" data-layout-allow-overflow="true">
+        <div data-hf-id="hf-iiyf" class="wordmark-row" id="top-bar">
+          <img data-hf-id="hf-e6ka" class="wordmark" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-f4rs" class="live-pill">Beijing · Jan</div>
+        </div>
+
+        <div data-hf-id="hf-s6gy" id="zoom-outer">
+          <div data-hf-id="hf-yapf" id="zoom-inner">
+            <div data-hf-id="hf-mu5a" class="tilt-card" id="tilt-card">
+              <div data-hf-id="hf-gg82" class="page-content" id="page-content">
+                <img data-hf-id="hf-3yzb" src="assets/page/column.png" alt="AccuWeather Beijing January monthly forecast">
+                <div data-hf-id="hf-9wsc" class="page-marker" id="cal-target"></div>
+                <div data-hf-id="hf-kg60" class="page-marker" id="graph-target"></div>
+                <div data-hf-id="hf-xuz5" class="wipe" id="wipe-cal"></div>
+              </div>
+              <div data-hf-id="hf-smlo" class="yt-hl" id="page-hl"></div>
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-8o0i" class="vignette"></div>
+
+        <div data-hf-id="hf-or0h" class="callout" id="call-cal">
+          <div data-hf-id="hf-eej4" class="callout-kicker">Monthly forecast</div>
+          <div data-hf-id="hf-x68q" class="callout-title">Day by day, Beijing</div>
+        </div>
+        <div data-hf-id="hf-kwt5" class="callout" id="call-graph">
+          <div data-hf-id="hf-gpqw" class="callout-kicker">Temperature graph</div>
+          <div data-hf-id="hf-sfp9" class="callout-title">How January actually feels</div>
+        </div>
+
+        <div data-hf-id="hf-a866" class="lockup" id="lockup">
+          <img data-hf-id="hf-0vjx" class="lockup-logo" src="assets/logo/accuweather-logo.svg" alt="AccuWeather">
+          <div data-hf-id="hf-qa8s" class="lockup-line" id="lockup-line"></div>
+          <div data-hf-id="hf-90q2" class="lockup-place">Beijing</div>
+          <div data-hf-id="hf-auh3" class="lockup-month">January</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      (function () {
+        function ytHighlightIn(tl, target, at, opts) {
+          opts = opts || {};
+          gsap.set(target, {
+            "--yt-hl-x": opts.x !== undefined ? opts.x : "50%",
+            "--yt-hl-y": opts.y !== undefined ? opts.y : "50%",
+            "--yt-hl-rx": opts.rx !== undefined ? opts.rx : "22%",
+            "--yt-hl-ry": opts.ry !== undefined ? opts.ry : "26%",
+          });
+          tl.to(target, { opacity: 1, duration: 0.5, ease: "power2.out" }, at);
+        }
+        function ytHighlightTo(tl, target, at, opts, dur) {
+          opts = opts || {};
+          var vars = { duration: dur === undefined ? 0.8 : dur, ease: "power2.inOut" };
+          if (opts.x !== undefined) vars["--yt-hl-x"] = opts.x;
+          if (opts.y !== undefined) vars["--yt-hl-y"] = opts.y;
+          if (opts.rx !== undefined) vars["--yt-hl-rx"] = opts.rx;
+          if (opts.ry !== undefined) vars["--yt-hl-ry"] = opts.ry;
+          tl.to(target, vars, at);
+        }
+        function ytHighlightOut(tl, target, at) {
+          tl.to(target, { opacity: 0, duration: 0.4, ease: "power2.in" }, at);
+        }
+
+        function build() {
+          var W = 1080;
+          var H = 1920;
+          var page = document.getElementById("page-content");
+          var graph = document.getElementById("graph-target");
+          gsap.set("#tilt-card", { rotationY: 0, rotationX: 0, transformPerspective: 1400 });
+          gsap.set(page, { y: -1620 });
+          var r = graph.getBoundingClientRect();
+          var originX = ((r.left + r.width / 2) / W) * 100;
+          var originY = ((r.top + r.height / 2) / H) * 100;
+          var maxScale = Math.min((0.88 * W) / r.width, (0.88 * H) / r.height);
+          var zoomScale = Math.min(1.7, maxScale);
+          gsap.set(page, { y: 0 });
+          gsap.set("#zoom-outer", { transformOrigin: originX + "% " + originY + "%" });
+
+          gsap.set("#tilt-card", {
+            rotationY: -6,
+            rotationX: 4,
+            transformPerspective: 1400,
+            force3D: true,
+          });
+          gsap.set("#wipe-cal", { scaleX: 0, autoAlpha: 0 });
+          gsap.set("#call-cal", { autoAlpha: 0, y: 18 });
+          gsap.set("#call-graph", { autoAlpha: 0, y: 18 });
+          gsap.set("#lockup", { autoAlpha: 0, y: 28 });
+          gsap.set("#lockup-line", { scaleX: 0, transformOrigin: "left center" });
+          gsap.set("#top-bar", { autoAlpha: 0, y: -16 });
+          gsap.set("#page-hl", { opacity: 0 });
+          gsap.set("#page-content", { y: -280 });
+
+          var tl = gsap.timeline({ paused: true });
+
+          tl.fromTo(
+            "#tilt-card",
+            { autoAlpha: 0, scale: 0.9 },
+            { autoAlpha: 1, scale: 1, duration: 0.7, ease: "power3.out" },
+            0.05,
+          );
+          tl.fromTo(
+            "#top-bar",
+            { autoAlpha: 0, y: -16 },
+            { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
+            0.15,
+          );
+
+          tl.to("#page-content", { y: -520, duration: 1.6, ease: "power3.out" }, 0.4);
+
+          tl.fromTo(
+            "#wipe-cal",
+            { scaleX: 0, autoAlpha: 0 },
+            { scaleX: 1, autoAlpha: 1, duration: 0.55, ease: "power3.out" },
+            2.15,
+          );
+          ytHighlightIn(tl, "#page-hl", 2.2, { x: "50%", y: "42%", rx: "48%", ry: "32%" });
+          tl.fromTo(
+            "#call-cal",
+            { autoAlpha: 0, y: 18 },
+            { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" },
+            2.35,
+          );
+
+          tl.to("#call-cal", { autoAlpha: 0, y: -10, duration: 0.3, ease: "power2.in" }, 4.7);
+          tl.to("#wipe-cal", { autoAlpha: 0, duration: 0.3, ease: "power1.in" }, 4.75);
+          tl.to("#page-content", { y: -1620, duration: 1.5, ease: "power3.out" }, 5.0);
+          ytHighlightTo(tl, "#page-hl", 5.15, { x: "50%", y: "20%", rx: "52%", ry: "18%" }, 1.2);
+
+          tl.fromTo(
+            "#call-graph",
+            { autoAlpha: 0, y: 18 },
+            { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" },
+            6.4,
+          );
+
+          tl.to("#zoom-outer", { scale: zoomScale, duration: 1.25, ease: "power3.inOut" }, 7.55);
+          tl.to("#tilt-card", { rotationY: 0, rotationX: 0, scale: 1, duration: 1.25, ease: "power3.inOut" }, 7.55);
+
+          tl.to("#call-graph", { autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 8.55);
+          tl.to("#top-bar", { autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 8.55);
+          ytHighlightOut(tl, "#page-hl", 8.55);
+          tl.to("#tilt-card", { autoAlpha: 0.28, duration: 0.5, ease: "power2.out" }, 8.65);
+          tl.fromTo(
+            "#lockup",
+            { autoAlpha: 0, y: 28 },
+            { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" },
+            8.75,
+          );
+          tl.fromTo(
+            "#lockup-line",
+            { scaleX: 0 },
+            { scaleX: 1, duration: 0.4, ease: "power2.out" },
+            8.95,
+          );
+
+          tl.seek(0);
+          window.__timelines["main"] = tl;
+          if (typeof window.__hfForceTimelineRebind === "function") {
+            window.__hfForceTimelineRebind();
+          }
+        }
+
+        var img = document.querySelector("#page-content img");
+        var ready = [];
+        if (document.fonts && document.fonts.ready) ready.push(document.fonts.ready);
+        if (img && img.decode) ready.push(img.decode().catch(function () {}));
+        Promise.all(ready).then(build);
+      })();
+    </script>
+  </body>
+</html>

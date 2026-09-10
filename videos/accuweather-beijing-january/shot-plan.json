@@ -1,0 +1,41 @@
+{
+  "category": "webpage",
+  "duration_s": 10,
+  "fps": 30,
+  "canvas": { "w": 1080, "h": 1920, "aspect": "9:16" },
+  "style": "cold-clear AccuWeather product intro: navy night sky, frost-white type, amber RealFeel accent; confident and meteorological, not playful",
+  "palette": ["#0B1F3A", "#1B4F8A", "#F05514", "#F7F9FC", "#7EC8E3"],
+  "font": "Inter",
+  "beats": [0.4, 2.2, 5.0, 7.6, 9.2],
+  "export": "mp4",
+  "asset_needs": [
+    {
+      "role": "hero-page",
+      "kind": "web",
+      "source": "https://www.accuweather.com/en/cn/beijing/101924/january-weather/101924",
+      "treatment": "none"
+    },
+    {
+      "role": "brand-logo",
+      "kind": "logo",
+      "query": "AccuWeather logo",
+      "treatment": "cutout"
+    }
+  ],
+  "content": {
+    "url": "https://www.accuweather.com/en/cn/beijing/101924/january-weather/101924",
+    "block": "yt-feather-highlight",
+    "customize": {
+      "page": "assets/page/column.png",
+      "logo": "assets/logo/accuweather-logo.svg",
+      "rules": ["3d-page-scroll", "coordinate-target-zoom"],
+      "focus": "last-week Jan 25–31"
+    },
+    "capture": "assets/page/full-page.png",
+    "highlights": [
+      { "label": "Last week", "region": "calendar-week-25-31" },
+      { "label": "Closing cold", "region": "week-temps" }
+    ]
+  },
+  "shot_brief": "Open on AccuWeather Beijing January, scroll to the last calendar week (Jan 25–31), wipe+spotlight that row, punch in on the closing-week highs/lows, then lock up AccuWeather + Beijing + January."
+}

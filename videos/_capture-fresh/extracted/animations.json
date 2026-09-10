@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "webAnimations": 1,
+    "cssDeclarations": 40,
+    "scrollTargets": 11,
+    "cdpAnimations": 15,
+    "canvases": 0
+  },
+  "namedAnimations": [
+    "ketch-bannerDesktopAnimate"
+  ],
+  "scrollTriggeredElements": 11,
+  "representativeAnimations": [
+    {
+      "type": "CSSAnimation",
+      "playState": "finished",
+      "animationName": "ketch-bannerDesktopAnimate",
+      "targetSelector": "#ketch-banner.ketch-fixed.ketch-flex.ketch-z-ketch-max-z-index",
+      "targetRect": {
+        "x": 4,
+        "y": 735,
+        "width": 328,
+        "height": 341,
+        "top": 735,
+        "right": 332,
+        "bottom": 1076,
+        "left": 4
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "translateY(900px)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 1,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "translateY(0px)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 400,
+        "delay": 0,
+        "iterations": 1,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    }
+  ]
+}

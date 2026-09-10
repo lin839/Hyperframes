@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "shorts",
+      "confirmed_in": [
+        "accuweather-beijing-january"
+      ],
+      "updated_at": "2026-09-10T13:48:57.994Z"
+    },
+    "aspect": {
+      "value": "1080x1920",
+      "confirmed_in": [
+        "accuweather-beijing-january"
+      ],
+      "updated_at": "2026-09-10T13:48:58.066Z"
+    },
+    "language": {
+      "value": "en",
+      "confirmed_in": [
+        "accuweather-beijing-january"
+      ],
+      "updated_at": "2026-09-10T13:48:58.137Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "accuweather-beijing-january"
+      ],
+      "updated_at": "2026-09-10T13:48:58.211Z"
+    },
+    "storyboard": {
+      "value": "no",
+      "confirmed_in": [
+        "accuweather-beijing-january"
+      ],
+      "updated_at": "2026-09-10T13:48:58.280Z"
+    }
+  },
+  "sightings": {}
+}

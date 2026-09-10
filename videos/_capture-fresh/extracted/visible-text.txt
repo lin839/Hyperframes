@@ -1,0 +1,254 @@
+[h3] Privacy Promise
+[p] Welcome! We’re glad you’re here and want you to know that we respect your privacy and your right to control how we collect, use, and share your personal data. Please read our
+[a] Privacy Policy
+[p] to learn about our privacy practices.
+[button] Customize Settings
+[a] For Business
+[a] Warnings
+[a] Data Suite
+[a] Forensics
+[a] Advertising
+[a] Superior Accuracy™
+[h1] Beijing, Beijing
+[span] 19°
+[span] Location
+[title] Chevron down
+[span] Location
+[span] News
+[span] Videos
+[a] settings
+[a] Help
+[div] Beijing, Beijing Weather
+[a] Today
+[a] Hourly
+[a] 10-Day
+[a] Radar
+[a] MinuteCast®
+[a] Monthly
+[a] Air Quality
+[a] Health & Activities
+[p] Around the Globe
+[h3] Hurricane Tracker
+[h3] Severe Weather
+[h3] Radar & Maps
+[div] News
+[h3] News & Features
+[h3] Astronomy
+[h3] Business
+[h3] Climate
+[h3] Health
+[h3] Recreation
+[h3] Sports
+[h3] Travel
+[div] For Business
+[h3] Warnings
+[h3] Data Suite
+[h3] Forensics
+[h3] Advertising
+[h3] Superior Accuracy™
+[h3] Video
+[span] Today
+[span] Hourly
+[span] 10-Day
+[span] Radar
+[span] MinuteCast®
+[h2] Monthly
+[span] Air Quality
+[span] Health & Activities
+[h2] January
+[span] January
+[span] February
+[span] March
+[span] April
+[span] May
+[span] June
+[span] July
+[span] August
+[span] September
+[span] October
+[span] November
+[span] December
+[h2] 2026
+[span] 2025
+[span] 2026
+[span] 2027
+[h2] 10-Day
+[div] -7°
+[div] -6°
+[div] -5°
+[div] -9°
+[div] -10°
+[div] -11°
+[div] -11°
+[div] -9°
+[div] -8°
+[div] -8°
+[div] -7°
+[div] -7°
+[div] -7°
+[div] -6°
+[div] -1°
+[div] -9°
+[div] -10°
+[div] -9°
+[div] -7°
+[div] -7°
+[div] -6°
+[div] -3°
+[div] -7°
+[div] -4°
+[div] -8°
+[div] -6°
+[div] -11°
+[div] -4°
+[div] -12°
+[div] -13°
+[div] -13°
+[div] -13°
+[div] -11°
+[div] -9°
+[div] -9°
+[div] -7°
+[div] -6°
+[div] -6°
+[div] -4°
+[div] -8°
+[h2] Temperature Graph
+[text] 10°
+[text] -2°
+[text] -8°
+[text] -14°
+[text] Jan
+[span] Avg. Hi
+[span] Avg. Lo
+[span] Actual Hi
+[span] Actual Lo
+[span] Forecast Hi
+[span] Forecast Lo
+[h2] January Weather in Beijing
+[div] Beijing's January 2026 forecast shows daily high temperatures ranging from ° to °, with overnight lows between ° and °. The average high for January is ° with an average low of °. AccuWeather's monthly forecast extends further ahead than any other source, with day-by-day
+[a] RealFeel® Temperatures
+[div] giving a complete picture of how January weather will actually feel in Beijing. See also:
+[a] February
+[a] March
+[a] April
+[p] Around the Globe
+[h3] Hurricane Tracker
+[h3] Severe Weather
+[h3] Radar & Maps
+[h3] News
+[h3] Video
+[p] Top Stories
+[p] Hurricane
+[p] Will 2026 go down with no Atlantic hurricanes?
+[p] 5 hours ago
+[p] Hurricane
+[p] Former Hurricane Marie surf opens massive Malibu sinkhole
+[p] 21 hours ago
+[p] Hurricane
+[p] No Atlantic hurricanes by Sept. 12 would break a 60-year record
+[p] 1 hour ago
+[p] Weather Forecasts
+[p] Heat to bake California as waves hammer coastline this week
+[p] 4 hours ago
+[p] Weather Forecasts
+[p] Heat relief for central U.S. as temperatures surge in the east
+[p] 4 hours ago
+[a] More Stories
+[p] Featured Stories
+[p] Hurricane
+[p] Hurricane Lowell swipes Hawaii, knocking out power to Kaua'i
+[p] 23 hours ago
+[p] Weather News
+[p] Spotted lanternflies have spread to 22 states: ‘They’re here to stay’
+[p] 2 days ago
+[p] Recreation
+[p] Strong winds ground helicopter as hikers await rescue on Utah mountain
+[p] 21 hours ago
+[p] Recreation
+[p] Alligator attacks child swimming in restricted Florida waters
+[p] 21 hours ago
+[p] Health
+[p] Doctors release vaccine recommendations for RSV, influenza, COVID-19
+[p] 2 days ago
+[a] World
+[a] Asia
+[a] China
+[a] Beijing
+[a] Beijing
+[h2] Weather Near Beijing:
+[span] Cangzhou
+[span] Hebei
+[span] Langfang
+[span] Hebei
+[span] Tianjin
+[span] Tianjin
+[span] Company
+[a] Proven Superior Accuracy™
+[a] About AccuWeather
+[a] Digital Advertising
+[a] Careers
+[a] Press
+[a] Contact Us
+[span] Products & Services
+[a] For Business
+[a] For Partners
+[a] For Advertising
+[a] AccuWeather APIs
+[a] AccuWeather Connect
+[a] Personal Weather Stations
+[span] Apps & Downloads
+[a] iPhone App
+[a] Android App
+[a] See all Apps & Downloads
+[span] Subscription Services
+[a] AccuWeather Premium
+[a] AccuWeather Professional
+[span] More
+[a] AccuWeather Ready
+[a] Business
+[a] Health
+[a] Hurricane
+[a] Leisure and Recreation
+[a] Severe Weather
+[a] Space and Astronomy
+[a] Sports
+[a] Travel
+[a] Weather News
+[div] Company
+[a] Proven Superior Accuracy™
+[a] About AccuWeather
+[a] Digital Advertising
+[a] Careers
+[a] Press
+[a] Contact Us
+[div] Products & Services
+[a] For Business
+[a] For Partners
+[a] For Advertising
+[a] AccuWeather APIs
+[a] AccuWeather Connect
+[a] Personal Weather Stations
+[div] Apps & Downloads
+[a] iPhone App
+[a] Android App
+[a] See all Apps & Downloads
+[div] Subscription Services
+[a] AccuWeather Premium
+[a] AccuWeather Professional
+[div] More
+[a] AccuWeather Ready
+[a] Business
+[a] Health
+[a] Hurricane
+[a] Leisure and Recreation
+[a] Severe Weather
+[a] Space and Astronomy
+[a] Sports
+[a] Travel
+[a] Weather News
+[span] © 2026 AccuWeather, Inc. "AccuWeather" and sun design are registered trademarks of AccuWeather, Inc. All Rights Reserved.
+[a] Terms of Use
+[a] Privacy Policy
+[a] Cookie Policy
+[a] Data Sources
