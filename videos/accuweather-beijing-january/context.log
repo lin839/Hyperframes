@@ -1,5 +1,0 @@
-capture ok=true url=https://www.accuweather.com/en/cn/beijing/101924/january-weather/101924 screenshots=5
-logo: media-use resolve failed (fetch); used capture SVG
-catalog: ui-focus-zoom, yt-feather-highlight, simulated-cursor ranked; webpage motion authored from 3d-page-scroll + coordinate-target-zoom around captured full-page.png
-build: 1080x1920 10s; column crop 720x2680; yt-feather-highlight helpers inlined; grain-overlay skipped (infinite CSS)
-verify: lint 0 errors (duplicate logo img warning); check passed; snapshots at 0.4 2.4 6.5 8.4 9.5
