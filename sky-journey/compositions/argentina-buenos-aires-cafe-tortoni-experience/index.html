@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-CN" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Café Tortoni — Experience (16:9 · silent)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #1a1210;
+      }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden; background: #1a1210;
+      }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .layer { position: absolute; inset: 0; overflow: hidden; }
+      .inner {
+        position: absolute; inset: 0; width: 100%; height: 100%; will-change: transform;
+      }
+      .inner img,
+      .layer video.clip {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; display: block;
+      }
+      .grade {
+        position: absolute; inset: 0; pointer-events: none; z-index: 5;
+        background:
+          radial-gradient(ellipse at 50% 28%, rgba(255, 196, 140, 0.08), transparent 55%),
+          linear-gradient(180deg, rgba(18,12,10,0.10) 0%, transparent 28%, transparent 58%, rgba(18,12,10,0.48) 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="31"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Silent picture-only · no VO / TTS / captions -->
+
+      <!-- 0–2.5 façade -->
+      <section
+        id="shot-facade"
+        class="clip"
+        data-start="0"
+        data-duration="2.55"
+        data-track-index="0"
+        data-layout-allow-overflow
+      >
+        <div class="inner" id="inner-facade">
+          <img src="assets/proxies/exterior-facade-cc-16x9.proxy.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- 2.4–9.6 walk-in -->
+      <div class="layer" id="layer-0748" data-layout-allow-overflow>
+        <div class="inner" id="inner-0748">
+          <video
+            id="vid-0748"
+            class="clip"
+            src="assets/proxies/0748-walk-in-7p2-16x9.proxy.mp4"
+            data-start="2.4"
+            data-duration="7.2"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 9.4–12.2 ambient -->
+      <div class="layer" id="layer-0750" data-layout-allow-overflow>
+        <div class="inner" id="inner-0750">
+          <video
+            id="vid-0750"
+            class="clip"
+            src="assets/proxies/0750-ambient-2p8-16x9.proxy.mp4"
+            data-start="9.4"
+            data-duration="2.8"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 12.0–15.2 ceiling -->
+      <div class="layer" id="layer-0751" data-layout-allow-overflow>
+        <div class="inner" id="inner-0751">
+          <video
+            id="vid-0751"
+            class="clip"
+            src="assets/proxies/0751-ceiling-3p2-16x9.proxy.mp4"
+            data-start="12.0"
+            data-duration="3.2"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 15.0–17.5 utensils still -->
+      <section
+        id="shot-0753"
+        class="clip"
+        data-start="15.0"
+        data-duration="2.55"
+        data-track-index="0"
+        data-layout-allow-overflow
+      >
+        <div class="inner" id="inner-0753">
+          <img src="assets/proxies/0753-utensils-16x9.proxy.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- 17.3–20.1 water -->
+      <div class="layer" id="layer-0754" data-layout-allow-overflow>
+        <div class="inner" id="inner-0754">
+          <video
+            id="vid-0754"
+            class="clip"
+            src="assets/proxies/0754-water-2p8-16x9.proxy.mp4"
+            data-start="17.3"
+            data-duration="2.8"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 19.9–22.7 juice -->
+      <div class="layer" id="layer-0755" data-layout-allow-overflow>
+        <div class="inner" id="inner-0755">
+          <video
+            id="vid-0755"
+            class="clip"
+            src="assets/proxies/0755-juice-2p8-16x9.proxy.mp4"
+            data-start="19.9"
+            data-duration="2.8"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 22.5–25.7 order -->
+      <div class="layer" id="layer-0756" data-layout-allow-overflow>
+        <div class="inner" id="inner-0756">
+          <video
+            id="vid-0756"
+            class="clip"
+            src="assets/proxies/0756-order-3p2-16x9.proxy.mp4"
+            data-start="22.5"
+            data-duration="3.2"
+            data-media-start="0"
+            data-track-index="0"
+            muted
+            playsinline
+          ></video>
+        </div>
+      </div>
+
+      <!-- 25.5–27.8 food still -->
+      <section
+        id="shot-0757"
+        class="clip"
+        data-start="25.5"
+        data-duration="2.35"
+        data-track-index="0"
+        data-layout-allow-overflow
+      >
+        <div class="inner" id="inner-0757">
+          <img src="assets/proxies/0757-food-16x9.proxy.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- 27.6–31.0 bill -->
+      <section
+        id="shot-0760"
+        class="clip"
+        data-start="27.6"
+        data-duration="3.4"
+        data-track-index="0"
+        data-layout-allow-overflow
+      >
+        <div class="inner" id="inner-0760">
+          <img src="assets/proxies/0760-bill-16x9.proxy.jpg" alt="" />
+        </div>
+      </section>
+
+      <div class="grade" aria-hidden="true"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Start all later layers hidden
+      [
+        "#inner-0748", "#inner-0750", "#inner-0751", "#inner-0753",
+        "#inner-0754", "#inner-0755", "#inner-0756", "#inner-0757", "#inner-0760",
+      ].forEach((sel) => tl.set(sel, { opacity: 0 }, 0));
+
+      // 1 · façade Ken Burns
+      tl.fromTo(
+        "#inner-facade",
+        { scale: 1.0, opacity: 1 },
+        { scale: 1.06, duration: 2.5, ease: "none", immediateRender: false },
+        0
+      );
+      tl.to("#inner-facade", { opacity: 0, duration: 0.25, ease: "power1.in" }, 2.3);
+
+      // 2 · walk-in
+      tl.fromTo(
+        "#inner-0748",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.03, duration: 7.2, ease: "none", immediateRender: false },
+        2.35
+      );
+      tl.to("#inner-0748", { opacity: 0, duration: 0.25, ease: "power1.in" }, 9.35);
+
+      // 3 · ambient
+      tl.fromTo(
+        "#inner-0750",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.04, duration: 2.8, ease: "none", immediateRender: false },
+        9.35
+      );
+      tl.to("#inner-0750", { opacity: 0, duration: 0.25, ease: "power1.in" }, 11.95);
+
+      // 4 · ceiling
+      tl.fromTo(
+        "#inner-0751",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.05, duration: 3.2, ease: "none", immediateRender: false },
+        11.95
+      );
+      tl.to("#inner-0751", { opacity: 0, duration: 0.25, ease: "power1.in" }, 14.95);
+
+      // 5 · utensils push-in
+      tl.fromTo(
+        "#inner-0753",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.06, duration: 2.5, ease: "none", immediateRender: false },
+        14.95
+      );
+      tl.to("#inner-0753", { opacity: 0, duration: 0.25, ease: "power1.in" }, 17.25);
+
+      // 6 · water
+      tl.fromTo(
+        "#inner-0754",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.03, duration: 2.8, ease: "none", immediateRender: false },
+        17.25
+      );
+      tl.to("#inner-0754", { opacity: 0, duration: 0.25, ease: "power1.in" }, 19.85);
+
+      // 7 · juice
+      tl.fromTo(
+        "#inner-0755",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.03, duration: 2.8, ease: "none", immediateRender: false },
+        19.85
+      );
+      tl.to("#inner-0755", { opacity: 0, duration: 0.25, ease: "power1.in" }, 22.45);
+
+      // 8 · order
+      tl.fromTo(
+        "#inner-0756",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.04, duration: 3.2, ease: "none", immediateRender: false },
+        22.45
+      );
+      tl.to("#inner-0756", { opacity: 0, duration: 0.25, ease: "power1.in" }, 25.45);
+
+      // 9 · food still
+      tl.fromTo(
+        "#inner-0757",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.05, duration: 2.3, ease: "none", immediateRender: false },
+        25.45
+      );
+      tl.to("#inner-0757", { opacity: 0, duration: 0.25, ease: "power1.in" }, 27.55);
+
+      // 10 · bill hold
+      tl.fromTo(
+        "#inner-0760",
+        { opacity: 0, scale: 1.0 },
+        { opacity: 1, scale: 1.04, duration: 3.4, ease: "none", immediateRender: false },
+        27.55
+      );
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
